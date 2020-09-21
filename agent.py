@@ -5,8 +5,8 @@ from pyzbar.pyzbar import decode
 
 beaconint = random.randint(0, 9)
 uuidval = (uuid.uuid1())
-#agentid = str(uuidval)
-agentid = 'e383694c-f9e0-11ea-a2fa-001a7dda7113'
+agentid = str(uuidval)
+#agentid = 'e383694c-f9e0-11ea-a2fa-001a7dda7113'
 
 ## Welcome Screen
 print('\r\n#########################################\r\nWelcome to the QR Post Exploit Agent! \r\n#########################################\r\n\r\n')
