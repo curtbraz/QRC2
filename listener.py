@@ -8,7 +8,7 @@ from sqlite3 import Error
 from flask import Flask, request, send_from_directory
 app = Flask(__name__)
 
-listening_port = 45620
+listening_port = 9000
 
 ## Main Flask Function to Serve Up Images and Accept Input via Web Parameters
 @app.route("/img.png")
